@@ -1,6 +1,8 @@
 package htw.berlin.webtech.web.api;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Levy {
 
@@ -8,10 +10,10 @@ public class Levy {
     private String title;
     private String discription;
     private String modul;
-    private java.sql.Date deadline;
+    private LocalDate deadline;
     private String importance;
 
-    public Levy(long id, String title, String discription, String modul, Date deadline, String importance) {
+    public Levy(long id, String title, String discription, String modul, LocalDate deadline, String importance) {
         this.id = id;
         this.title = title;
         this.discription = discription;
@@ -52,11 +54,11 @@ public class Levy {
         this.modul = modul;
     }
 
-    public Date getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 
