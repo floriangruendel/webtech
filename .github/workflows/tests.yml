@@ -13,4 +13,5 @@ jobs:
           distribution: "adopt"
           java-version: 16
       - name: clean build
-        run: ./gradlew clean test --info --stacktrace
+        run: gradle wrapper
+            ./gradlew clean test --info --stacktrace
