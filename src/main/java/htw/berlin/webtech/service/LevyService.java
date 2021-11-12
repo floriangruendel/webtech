@@ -57,6 +57,13 @@ public class LevyService {
         return transformEntity(levyEntity);
     }
 
+    public boolean deleteById(Long id) {
+        if(!levyRepository.existsById(id)) return false;
+
+        levyRepository.deleteById(id);
+        return true;
+    }
+
     private Levy transformEntity(LevyEntity levyEntity) {
         return new Levy(
                 levyEntity.getId(),

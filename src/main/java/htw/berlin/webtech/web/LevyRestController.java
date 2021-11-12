@@ -42,4 +42,10 @@ public class LevyRestController {
         var levy = levyService.update(id, request);
         return levy != null? ResponseEntity.ok(levy) : ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping(path = "/api/v1/levies/{id}")
+    public ResponseEntity<Void> deleteLevy(@PathVariable Long id) {
+        boolean successful = levyService.deleteById(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 }
