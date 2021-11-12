@@ -1,9 +1,8 @@
 package htw.berlin.webtech.web;
 
-import htw.berlin.webtech.persistence.LevyRepository;
 import htw.berlin.webtech.service.LevyService;
 import htw.berlin.webtech.web.api.Levy;
-import htw.berlin.webtech.web.api.LevyCreateRequest;
+import htw.berlin.webtech.web.api.LevyManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +31,15 @@ public class LevyRestController {
     }
 
     @PostMapping(path = "/api/v1/levies")
-    public ResponseEntity<Void> createLevy(@RequestBody LevyCreateRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createLevy(@RequestBody LevyManipulationRequest request) throws URISyntaxException {
         var person = levyService.create(request);
         URI uri = new URI("/api/v1/levies/" + person.getId());
         return ResponseEntity.created(uri).build();
-        }
+    }
+
+    @PutMapping(path = "/api/v1/levies/{id}")
+    public ResponseEntity<Levy> updateLevy(@PathVariable Long id, @RequestBody LevyManipulationRequest request) {
+        var levy = levyService.update(id, request);
+        return levy != null? ResponseEntity.ok(levy) : ResponseEntity.notFound().build();
+    }
 }

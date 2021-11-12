@@ -2,7 +2,7 @@ package htw.berlin.webtech.web.api;
 
 import java.time.LocalDate;
 
-public class LevyCreateRequest {
+public class LevyManipulationRequest {
 
     private String title;
     private String discription;
@@ -10,7 +10,7 @@ public class LevyCreateRequest {
     private LocalDate deadline;
     private String importance;
 
-    public LevyCreateRequest(String title, String discription, String modul, LocalDate deadline, String importance) {
+    public LevyManipulationRequest(String title, String discription, String modul, LocalDate deadline, String importance) {
         this.title = title;
         this.discription = discription;
         this.modul = modul;
