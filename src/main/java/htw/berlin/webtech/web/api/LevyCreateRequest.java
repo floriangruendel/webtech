@@ -1,43 +1,21 @@
-package htw.berlin.webtech.persistence;
+package htw.berlin.webtech.web.api;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity(name = "levies")
-public class LevyEntity {
+public class LevyCreateRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
-
-    @Column(name = "title", nullable = false)
     private String title;
-
-    @Column(name = "discription")
     private String discription;
-
-    @Column(name = "modul")
     private String modul;
-
-    @Column(name = "deadline", nullable = false)
     private LocalDate deadline;
-
-    @Column(name = "importance", nullable = false)
     private String importance;
 
-    public LevyEntity(String title, String discription, String modul, LocalDate deadline, String importance) {
+    public LevyCreateRequest(String title, String discription, String modul, LocalDate deadline, String importance) {
         this.title = title;
         this.discription = discription;
         this.modul = modul;
         this.deadline = deadline;
         this.importance = importance;
-    }
-
-    protected LevyEntity() {}
-
-    public long getId() {
-        return id;
     }
 
     public String getTitle() {
