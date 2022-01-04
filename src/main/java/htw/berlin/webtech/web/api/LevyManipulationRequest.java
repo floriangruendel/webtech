@@ -18,6 +18,8 @@ public class LevyManipulationRequest {
         this.importance = importance;
     }
 
+    public LevyManipulationRequest() {}
+
     public String getTitle() {
         return title;
     }
