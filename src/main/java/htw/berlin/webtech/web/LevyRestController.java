@@ -6,6 +6,7 @@ import htw.berlin.webtech.web.api.LevyManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -31,10 +32,10 @@ public class LevyRestController {
     }
 
     @PostMapping(path = "/api/v1/levies")
-    public ResponseEntity<Void> createLevy(@RequestBody LevyManipulationRequest request) throws URISyntaxException {
-        var person = levyService.create(request);
-        URI uri = new URI("/api/v1/levies/" + person.getId());
-        return ResponseEntity.created(uri).build();
+    public ResponseEntity<Void> createLevy(@Valid @RequestBody LevyManipulationRequest request) throws URISyntaxException {
+            var person = levyService.create(request);
+            URI uri = new URI("/api/v1/levies/" + person.getId());
+            return ResponseEntity.created(uri).build();
     }
 
     @PutMapping(path = "/api/v1/levies/{id}")
