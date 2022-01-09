@@ -6,19 +6,14 @@ import java.time.LocalDate;
 
 public class LevyManipulationRequest {
 
-    @NotBlank(message = "The title must not be empty.")
     private String title;
 
-    @NotBlank(message = "The discription must not be empty.")
     private String discription;
 
-    @NotBlank(message = "The modul must not be empty.")
     private String modul;
 
-    @NotBlank(message = "The modul must not be empty.")
     private LocalDate deadline;
 
-    @NotBlank(message = "The importance must not be empty.")
     private String importance;
 
     public LevyManipulationRequest(String title, String discription, String modul, LocalDate deadline, String importance) {
